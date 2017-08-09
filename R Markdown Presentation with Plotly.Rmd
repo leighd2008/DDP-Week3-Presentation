@@ -2,7 +2,9 @@
 title: "R Markdown with Plotly"
 author: "Diane Leigh"
 date: "August 9, 2017"
-output: ioslides_presentation
+output: 
+  ioslides_presentation: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
