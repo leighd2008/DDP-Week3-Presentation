@@ -1,0 +1,37 @@
+---
+title: "R Markdown with Plotly"
+author: "Diane Leigh"
+date: "August 9, 2017"
+output: 
+  ioslides_presentation: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(plotly)
+library(data.table)
+
+```
+
+
+
+## Plot using Plotly {.flexbox .vcenter}
+
+```{r nasa_data, message=FALSE, warning=FALSE}
+data(nasa)
+nasadt <- as.data.table(nasa)
+nasaAug00 <- nasadt[year== 2000 & month == 8]
+nasaAug00$temp <- nasaAug00$temperature *9/5 -459.67
+setnames(nasaAug00, c("lat", "long", "month", "year", "High_Cloud_Cover", "Mid_Cloud_Cover", "Low_Cloud_Cover", "Ozone", "pressure", "surftemp", "temp", "Temperature_F"))
+a <- list(
+  title = "AXIS TITLE",
+  showticklabels = TRUE)
+
+plot_ly(nasaAug00, x = ~High_Cloud_Cover, y = ~Mid_Cloud_Cover, z = ~Low_Cloud_Cover,
+        type = "scatter3d", mode = "markers", color = ~Temperature_F) %>%
+  layout(xaxis = a, yaxis = a)
+
+```
+
