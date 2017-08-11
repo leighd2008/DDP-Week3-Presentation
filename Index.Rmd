@@ -15,8 +15,9 @@ library(data.table)
 
 ```
 
-## NASA spatio-temporal data:|(http://stat-computing.org/dataexpo/2006/)
-Data from August of 2000, was used to explore the relationship between cloud cover and air temperature.
+## NASA spatio-temporal data
+(http://stat-computing.org/dataexpo/2006/)
+Data from August of 2000, was used to explore the relationship between cloud cover and air temperature. Created August 9, 2017
 ```{r nasa_data, message=FALSE, warning=FALSE}
 data(nasa)
 nasadt <- as.data.table(nasa)
